@@ -4,7 +4,7 @@ In this section, we show that:
 
 \begin{itemize}
 
-\item In the network with constant bandwidth, compared with state-of-the-art VR streaming system, PQVRS saves 45\% bandwidth on average while providing the same PSPNR, or provides 15-20 higher PSPNR in the same bandwidth.
+\item In the network with fixed bandwidth, compared with state-of-the-art VR streaming system, PQVRS saves 45\% bandwidth on average while providing the same PSPNR, or provides 15-20 higher PSPNR in the same bandwidth.
 
 \item In the network with unstable bandwidth, PQVRS improves 10 higher PSPNR and decreases 50\% stalling.
 
@@ -106,35 +106,21 @@ In order to clarify in which situation our proposed PQVRS has substantial improv
 
 Video types includes sports, nature, indoor, talkshow, ...
 
-Video size is defined by the size of original video segment. A large-size video segment indicates the segment includes complicated or dramatically-changing content. A small-size video segment indicates the segment includes simple and static content.
+Video size is defined by the bitrate of original video. A large-size video indicates the video includes complicated or dramatically-changing content. A small-size video indicates the video includes simple and static content.
 
 Fig. X shows the result.
 
     \begin{figure}
   \centering
-  \includegraphics[width=3in]{images/performance_type.jpeg}
-  \caption{PSPNR-bandwidth tradeoff of sports video.}
+  \includegraphics[width=3in]{images/rating_type.jpeg}
+  \caption{User rating results for different types of videos.}
   \label{rating_res}
   \end{figure}
   
       \begin{figure}
   \centering
-  \includegraphics[width=3in]{images/performance_type.jpeg}
-  \caption{PSPNR-bandwidth tradeoff of talkshow video.}
-  \label{rating_res}
-  \end{figure}
-  
-      \begin{figure}
-  \centering
-  \includegraphics[width=3in]{images/performance_type.jpeg}
-  \caption{PSPNR-bandwidth tradeoff of large-size video.}
-  \label{rating_res}
-  \end{figure}
-  
-      \begin{figure}
-  \centering
-  \includegraphics[width=3in]{images/performance_type.jpeg}
-  \caption{PSPNR-bandwidth tradeoff of small-size video.}
+  \includegraphics[width=3in]{images/rating_bitrate.jpeg}
+  \caption{User rating results for videos with different original bitrate.}
   \label{rating_res}
   \end{figure}
   
