@@ -1,0 +1,11 @@
+\section{Related Works}
+
+\textbf{User Perceived Quality in Video Display:}
+
+In traditional non-VR video streaming, prior work has shown correlations between various visual characteristics and user perceived quality (e.g., users are sensitive to luminance, texture complexity, viewpoint-object distance), and built mathematical models (e.g., [] [] [] []). Our work focuses on exploring the new factors which influence user perceived quality in VR display which are never considered in traditional non-VR display, and then build an adaptive streaming system based on our insights.
+
+\textbf{VR Adaptive Streaming:}
+
+Monolithic streaming is the naive VR adaptive streaming method by streaming the entire 360-degree scene in constant quality without exploiting and optimizing the quality for the user’s viewport, only choose different quality for different segments.
+
+Since user's near-future viewpoint can be predicted in high accuracy,  in order to save bandwidth, client chooses high quality for content in user's viewport and choose low quality for content out of user's viewport. There are many viewpoint-driven VR adaptive streaming works ([] [] [] [] [] ). Main difference between these adaptive streaming systems is that they choose different viewpoint prediction strategies, different rate allocation strategies, different tiling granularities and different multi-tiles decoding logics. But there are 2 common points: (1) quality allocation for each spatial part of the video is only based on the distance between content and viewpoint. (2) video is cut into tiles of equal size. Our proposed PQVRS has essential difference on these 2 points.
