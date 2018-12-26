@@ -1,0 +1,347 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{25}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{}, \showDOI{}, and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showDOI}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showDOI #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showDOI      \undefined \def \showDOI       #1{#1}\fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[\protect\citeauthoryear{??}{git}{[n. d.]}]%
+        {github}
+ \bibinfo{year}{[n. d.]}\natexlab{}.
+\newblock   (\bibinfo{year}{[n. d.]}).
+\newblock
+\showURL{%
+\url{https://github.com/ws826402696/VR_VideoStreaming_Project}}
+
+
+\bibitem[\protect\citeauthoryear{Anstis}{Anstis}{1974}]%
+        {letter}
+\bibfield{author}{\bibinfo{person}{S.M. Anstis}.}
+  \bibinfo{year}{1974}\natexlab{}.
+\newblock \showarticletitle{A chart demonstrating variations in acuity with
+  retinal position}.
+\newblock \bibinfo{journal}{{\em Vision Research\/}} \bibinfo{volume}{14},
+  \bibinfo{number}{7} (\bibinfo{year}{1974}), \bibinfo{pages}{589 -- 592}.
+\newblock
+\showISSN{0042-6989}
+
+
+\bibitem[\protect\citeauthoryear{Bao, Wu, Zhang, Ramli, and Liu}{Bao
+  et~al\mbox{.}}{2017}]%
+        {viewpoint-driven1}
+\bibfield{author}{\bibinfo{person}{Yanan Bao}, \bibinfo{person}{Huasen Wu},
+  \bibinfo{person}{Tianxiao Zhang}, \bibinfo{person}{Albara~Ah Ramli}, {and}
+  \bibinfo{person}{Xin Liu}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{Shooting a Moving Target: Motion-Prediction-Based
+  Transmission for 360-Degree Videos}. In \bibinfo{booktitle}{{\em IEEE
+  International Conference on Big Data}}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Carnegie and Rhee}{Carnegie and Rhee}{2015}]%
+        {DoF1}
+\bibfield{author}{\bibinfo{person}{K Carnegie} {and} \bibinfo{person}{T Rhee}.}
+  \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{Reducing Visual Discomfort with HMDs Using Dynamic
+  Depth of Field}.
+\newblock \bibinfo{journal}{{\em IEEE Computer Graphics and Applications\/}}
+  \bibinfo{volume}{35}, \bibinfo{number}{5} (\bibinfo{year}{2015}),
+  \bibinfo{pages}{34--41}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Chen and Guillemot}{Chen and
+  Guillemot}{2009}]%
+        {distance}
+\bibfield{author}{\bibinfo{person}{Zhenzhong Chen} {and}
+  \bibinfo{person}{Christine Guillemot}.} \bibinfo{year}{2009}\natexlab{}.
+\newblock \showarticletitle{Perception-oriented video coding based on foveated
+  JND model}. In \bibinfo{booktitle}{{\em Picture Coding Symposium}}.
+  \bibinfo{pages}{1--4}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Chou and Chen}{Chou and Chen}{1996}]%
+        {JND}
+\bibfield{author}{\bibinfo{person}{Chun~Hsien Chou} {and}
+  \bibinfo{person}{Chi~Wei Chen}.} \bibinfo{year}{1996}\natexlab{}.
+\newblock \showarticletitle{A perceptually optimized 3-D subband codec for
+  video communication over wireless channels}.
+\newblock \bibinfo{journal}{{\em IEEE Transactions on Circuits and Systems for
+  Video Technology\/}} \bibinfo{volume}{6}, \bibinfo{number}{2}
+  (\bibinfo{year}{1996}), \bibinfo{pages}{143--156}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Chou and Li}{Chou and Li}{1995}]%
+        {PSPNR}
+\bibfield{author}{\bibinfo{person}{Chun~Hsien Chou} {and}
+  \bibinfo{person}{Yun~Chin Li}.} \bibinfo{year}{1995}\natexlab{}.
+\newblock \showarticletitle{Perceptually tuned subband image coder based on the
+  measure of just-noticeable-distortion profile}.
+\newblock \bibinfo{journal}{{\em IEEE Trans on Circuits and Systems for Video
+  Technology\/}} \bibinfo{volume}{5}, \bibinfo{number}{6}
+  (\bibinfo{year}{1995}), \bibinfo{pages}{467--476}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Gaddam, Riegler, Eg, Halvorsen, and
+  Griwodz}{Gaddam et~al\mbox{.}}{2016}]%
+        {viewpoint-driven2}
+\bibfield{author}{\bibinfo{person}{Vamsidhar~Reddy Gaddam},
+  \bibinfo{person}{Michael Riegler}, \bibinfo{person}{Ragnhild Eg},
+  \bibinfo{person}{Pal Halvorsen}, {and} \bibinfo{person}{Carsten Griwodz}.}
+  \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{Tiling in Interactive Panoramic Video: Approaches
+  and Evaluation}.
+\newblock \bibinfo{journal}{{\em IEEE Transactions on Multimedia\/}}
+  \bibinfo{volume}{18}, \bibinfo{number}{9} (\bibinfo{year}{2016}),
+  \bibinfo{pages}{1819--1831}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Graf, Timmerer, and Mueller}{Graf
+  et~al\mbox{.}}{2017}]%
+        {viewpoint-driven3}
+\bibfield{author}{\bibinfo{person}{Mario Graf}, \bibinfo{person}{Christian
+  Timmerer}, {and} \bibinfo{person}{Christopher Mueller}.}
+  \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{Towards Bandwidth Efficient Adaptive Streaming of
+  Omnidirectional Video over HTTP: Design, Implementation, and Evaluation}. In
+  \bibinfo{booktitle}{{\em ACM on Multimedia Systems Conference}}.
+  \bibinfo{pages}{261--271}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Hoffman, Girshick, Akeley, and Banks}{Hoffman
+  et~al\mbox{.}}{2008}]%
+        {DoF2}
+\bibfield{author}{\bibinfo{person}{David~M. Hoffman}, \bibinfo{person}{Ahna~R.
+  Girshick}, \bibinfo{person}{Kurt Akeley}, {and} \bibinfo{person}{Martin~S.
+  Banks}.} \bibinfo{year}{2008}\natexlab{}.
+\newblock \showarticletitle{Vergence–accommodation conflicts hinder visual
+  performance and cause visual fatigue}.
+\newblock \bibinfo{journal}{{\em Journal of Vision\/}} \bibinfo{volume}{8},
+  \bibinfo{number}{3} (\bibinfo{year}{2008}), \bibinfo{pages}{33}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Hosseini and Swaminathan}{Hosseini and
+  Swaminathan}{2016}]%
+        {viewpoint-driven4}
+\bibfield{author}{\bibinfo{person}{Mohammad Hosseini} {and}
+  \bibinfo{person}{Viswanathan Swaminathan}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{Adaptive 360 VR Video Streaming: Divide and
+  Conquer!}
+\newblock  (\bibinfo{year}{2016}), \bibinfo{pages}{107--110}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Legge and Foley}{Legge and Foley}{1980}]%
+        {contrast_masking}
+\bibfield{author}{\bibinfo{person}{Gordon~E. Legge} {and}
+  \bibinfo{person}{John~M. Foley}.} \bibinfo{year}{1980}\natexlab{}.
+\newblock \showarticletitle{Contrast masking in human vision}.
+\newblock \bibinfo{journal}{{\em J. Opt. Soc. Am.\/}} \bibinfo{volume}{70},
+  \bibinfo{number}{12} (\bibinfo{date}{Dec} \bibinfo{year}{1980}),
+  \bibinfo{pages}{1458--1471}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Normann and Werblin}{Normann and
+  Werblin}{1974a}]%
+        {darkadaptation}
+\bibfield{author}{\bibinfo{person}{Richard~A. Normann} {and}
+  \bibinfo{person}{Frank~S. Werblin}.} \bibinfo{year}{1974}\natexlab{a}.
+\newblock \showarticletitle{Control of Retinal Sensitivity}.
+\newblock \bibinfo{journal}{{\em The Journal of General Physiology\/}}
+  \bibinfo{volume}{63}, \bibinfo{number}{1} (\bibinfo{year}{1974}),
+  \bibinfo{pages}{37--61}.
+\newblock
+\showISSN{0022-1295}
+
+
+\bibitem[\protect\citeauthoryear{Normann and Werblin}{Normann and
+  Werblin}{1974b}]%
+        {adaptation1}
+\bibfield{author}{\bibinfo{person}{R~A Normann} {and} \bibinfo{person}{F~S
+  Werblin}.} \bibinfo{year}{1974}\natexlab{b}.
+\newblock \showarticletitle{Control of retinal sensitivity. I. Light and dark
+  adaptation of vertebrate rods and cones}.
+\newblock \bibinfo{journal}{{\em Journal of General Physiology\/}}
+  \bibinfo{volume}{63}, \bibinfo{number}{1} (\bibinfo{year}{1974}),
+  \bibinfo{pages}{37--61}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Petrangeli, Swaminathan, Hosseini, and
+  De~Turck}{Petrangeli et~al\mbox{.}}{2017}]%
+        {viewpoint-driven5}
+\bibfield{author}{\bibinfo{person}{Stefano Petrangeli},
+  \bibinfo{person}{Viswanathan Swaminathan}, \bibinfo{person}{Mohammad
+  Hosseini}, {and} \bibinfo{person}{Filip De~Turck}.}
+  \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{An HTTP/2-Based Adaptive Streaming Framework for
+  360 Virtual Reality Videos}. In \bibinfo{booktitle}{{\em Proceedings of the
+  25th ACM International Conference on Multimedia}} {\em (\bibinfo{series}{MM
+  '17})}. \bibinfo{publisher}{ACM}, \bibinfo{address}{New York, NY, USA},
+  \bibinfo{pages}{306--314}.
+\newblock
+\showISBNx{978-1-4503-4906-2}
+
+
+\bibitem[\protect\citeauthoryear{Pugh}{Pugh}{1975}]%
+        {darkadaptation2}
+\bibfield{author}{\bibinfo{person}{E~N Pugh}.} \bibinfo{year}{1975}\natexlab{}.
+\newblock \showarticletitle{Rushton's paradox: rod dark adaptation after flash
+  photolysis.}
+\newblock \bibinfo{journal}{{\em The Journal of Physiology\/}}
+  \bibinfo{volume}{248}, \bibinfo{number}{2} (\bibinfo{year}{1975}),
+  \bibinfo{pages}{413--431}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Qian, Han, Xiao, and Gopalakrishnan}{Qian
+  et~al\mbox{.}}{2018}]%
+        {Flare}
+\bibfield{author}{\bibinfo{person}{Feng Qian}, \bibinfo{person}{Bo Han},
+  \bibinfo{person}{Qingyang Xiao}, {and} \bibinfo{person}{Vijay
+  Gopalakrishnan}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{Flare: Practical Viewport-Adaptive 360-Degree Video
+  Streaming for Mobile Devices}. In \bibinfo{booktitle}{{\em Proceedings of the
+  24th Annual International Conference on Mobile Computing and Networking}}
+  {\em (\bibinfo{series}{MobiCom '18})}. \bibinfo{publisher}{ACM},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{99--114}.
+\newblock
+\showISBNx{978-1-4503-5903-0}
+
+
+\bibitem[\protect\citeauthoryear{Qian, Ji, Han, and Gopalakrishnan}{Qian
+  et~al\mbox{.}}{2016}]%
+        {VPprediction}
+\bibfield{author}{\bibinfo{person}{Feng Qian}, \bibinfo{person}{Lusheng Ji},
+  \bibinfo{person}{Bo Han}, {and} \bibinfo{person}{Vijay Gopalakrishnan}.}
+  \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{Optimizing 360 video delivery over cellular
+  networks}. In \bibinfo{booktitle}{{\em The Workshop on All Things Cellular:
+  Operations}}. \bibinfo{pages}{1--6}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Redmon and Farhadi}{Redmon and
+  Farhadi}{2017}]%
+        {yolo}
+\bibfield{author}{\bibinfo{person}{J. Redmon} {and} \bibinfo{person}{A.
+  Farhadi}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{YOLO9000: Better, Faster, Stronger}. In
+  \bibinfo{booktitle}{{\em 2017 IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}}, Vol.~\bibinfo{volume}{00}. \bibinfo{pages}{6517--6525}.
+\newblock
+\showISSN{1063-6919}
+
+
+\bibitem[\protect\citeauthoryear{Safranek and Johnston}{Safranek and
+  Johnston}{1989}]%
+        {luminance1}
+\bibfield{author}{\bibinfo{person}{R.~J. Safranek} {and} \bibinfo{person}{J.~D.
+  Johnston}.} \bibinfo{year}{1989}\natexlab{}.
+\newblock \showarticletitle{A perceptually tuned sub-band image coder with
+  image dependent quantization and post-quantization data compression}. In
+  \bibinfo{booktitle}{{\em International Conference on Acoustics, Speech, and
+  Signal Processing}}. \bibinfo{pages}{1945--1948 vol.3}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Spiteri, Urgaonkar, and Sitaraman}{Spiteri
+  et~al\mbox{.}}{2016}]%
+        {BOLA}
+\bibfield{author}{\bibinfo{person}{K. Spiteri}, \bibinfo{person}{R. Urgaonkar},
+  {and} \bibinfo{person}{R.~K. Sitaraman}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{BOLA: Near-optimal bitrate adaptation for online
+  videos}. In \bibinfo{booktitle}{{\em IEEE INFOCOM 2016 - The 35th Annual IEEE
+  International Conference on Computer Communications}}. \bibinfo{pages}{1--9}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Westerink and Teunissen}{Westerink and
+  Teunissen}{1995}]%
+        {speed}
+\bibfield{author}{\bibinfo{person}{Joyce H. D.~M Westerink} {and}
+  \bibinfo{person}{Kees Teunissen}.} \bibinfo{year}{1995}\natexlab{}.
+\newblock \showarticletitle{Perceived sharpness in complex moving images}.
+\newblock \bibinfo{journal}{{\em Displays\/}} \bibinfo{volume}{16},
+  \bibinfo{number}{2} (\bibinfo{year}{1995}), \bibinfo{pages}{89--97}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Yin, Jindal, Sekar, and Sinopoli}{Yin
+  et~al\mbox{.}}{2015}]%
+        {MPC}
+\bibfield{author}{\bibinfo{person}{Xiaoqi Yin}, \bibinfo{person}{Abhishek
+  Jindal}, \bibinfo{person}{Vyas Sekar}, {and} \bibinfo{person}{Bruno
+  Sinopoli}.} \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{A Control-Theoretic Approach for Dynamic Adaptive
+  Video Streaming over HTTP}. In \bibinfo{booktitle}{{\em ACM Conference on
+  Special Interest Group on Data Communication}}. \bibinfo{pages}{325--338}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Zare, Aminlou, Hannuksela, and Gabbouj}{Zare
+  et~al\mbox{.}}{2016}]%
+        {viewpoint-driven6}
+\bibfield{author}{\bibinfo{person}{Alireza Zare}, \bibinfo{person}{Alireza
+  Aminlou}, \bibinfo{person}{Miska~M. Hannuksela}, {and}
+  \bibinfo{person}{Moncef Gabbouj}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{HEVC-compliant Tile-based Streaming of Panoramic
+  Video for Virtual Reality Applications}. \bibinfo{pages}{601--605}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Zhao, Yu, Chen, and Zhu}{Zhao
+  et~al\mbox{.}}{2011}]%
+        {brain}
+\bibfield{author}{\bibinfo{person}{Y. Zhao}, \bibinfo{person}{L. Yu},
+  \bibinfo{person}{Z. Chen}, {and} \bibinfo{person}{C. Zhu}.}
+  \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{Video Quality Assessment Based on Measuring
+  Perceptual Noise From Spatial and Temporal Perspectives}.
+\newblock \bibinfo{journal}{{\em IEEE Transactions on Circuits and Systems for
+  Video Technology\/}} \bibinfo{volume}{21}, \bibinfo{number}{12}
+  (\bibinfo{date}{Dec} \bibinfo{year}{2011}), \bibinfo{pages}{1890--1902}.
+\newblock
+\showISSN{1051-8215}
+
+
+\end{thebibliography}
