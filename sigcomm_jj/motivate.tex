@@ -1,0 +1,98 @@
+%!TEX root = main.tex
+
+\section{Motivation}
+
+We start with the background on \vr video streaming and the existing approaches.
+We then outline the new \vr video-specific opportunities inspired by a deeper understanding of how viewers perceive the quality of \vr videos, and show the potential gains in user-perceived \vr video quality under limited available bandwidth. 
+The section ends with a highlight on the key challenges to realize these potential gains.
+
+
+\subsection{Background of \vr video streaming}
+
+%\mypara{\vr video streaming}
+%\mypara{\vr videos coming to age}
+\vr video streaming is coming to age. 
+Almost all major content providers (YouTube~\cite{??}, Facebook~\cite{??}, Netflix~\cite{??}, Vimeo~\cite{??}, Amazon Prime~\cite{??}, Hulu~\cite{??}, iQIYI~\cite{??}, YouKu~\cite{??}) launched streaming services for \vr videos across many VR platforms~\cite{oculus,samsung,daydreams,etc}, believing that \vr videos are the future of story telling. 
+By 2022, there will be over 55 million active VR headsets in the US, which is as many as paying Netflix members in the US in 2018~\cite{https://qz.com/1298512/vr-could-be-as-big-in-the-us-as-netflix-in-five-years-study-shows/}.
+\jc{add more concrete statistics on the popularity of VR}
+
+%\mypara{Delivery architecture} 
+Besides the proliferation of the content and devices for \vr videos, the rise of \vr videos is also spurred by its efficient video streaming architecture.
+Similar to non-\vr videos, a typical \vr video delivery pipeline is as following. 
+A regular video is first encoded using a \vr encoder, and then just as regular videos, the \vr video will be chunked into segments, sent to a content delivery network (CDN) for Internet-scale distribution, and streamed from the CDN edge HTTP servers to \vr headset over the HTTP(S) protocol~\cite{hls,https://www.wowza.com/solutions/streaming-types/virtual-reality-and-360-degree-streaming}.
+Like the streaming protocols for non-\vr videos, the \vr-video streaming protocols seek to achieve better {\em QoE-bandwidth tradeoffs}---adapting the quality level (\eg bitrate or quantization parameters) in order to maximize the user-perceived QoE (explained in the next section) under the changing available bandwidth.
+\jc{other than the client-side adaptation scheme, is there some fundamental diff or non-trivial steps involved in the preparation/dissemination of \vr content?}
+
+
+%\mypara{Existing \vr video streaming protocols}
+While both the quality adaptation of \vr videos and that of traditional videos share the goal of optimizing the QoE-bandwidth tradeoff, a distinctive feature of \vr video streaming is that the viewer's attention is {\em unevenly} distributed over a large panoramic space with more attention centered around the viewport. 
+This is in contrast to non-\vr videos that are displayed on desktop or smartphone screens directly in front of the viewers, making the unevenness of attention less obvious.
+
+Therefore, besides adapting the video quality level along the temporal dimension, \vr streaming protocols also explore the {\em spatial} dimension---each video frame can be spatially partitioned into tiles, and each tile can be streamed and rendered at different quality levels.
+This tile-level adaptation enables the protocol to optimize the quality around the user's viewport at the cost of the quality of areas outside of viewport, thus using the same or even less bandwidth. 
+
+%These {\em viewport-driven} protocols (\eg~\cite{??,??,??}) that the user-perceived quality of a spatial region is a function of the encoded quality and the region's distance to the viewport center.
+The gain of these {\em viewport-driven} protocols (\eg~\cite{??,??,??}), however, is limited, since the videos have to be encoded with very short chunks so that the quality level can be adjusted whenever the viewport moves substantially. 
+We see an increasing interest recently to improve the viewport-driven streaming~\cite{??,??,??} with better viewport prediction algorithms, but the basic limit remains.
+
+
+\subsection{New \vr video-specific opportunities}
+
+While the uneven distribution of the viewer's attention affects the QoE-bandwidth tradeoff, our first key observation is that it is just one of {\em several \vr video-specific factors that can heavily influence the perceived QoE of \vr videos but have yet to be fully explored}. 
+In particular, this paper examines the three following factors:
+
+\myparashort{Factor\#1: Viewpoint moving speed.} 
+One of the most highlighted features of \vr videos is that users can freely move their viewpoints. 
+When a viewer moves her viewpoint, her sensitivity to the quality distortion drops in proportional to the speed of the viewport movement.
+Consequently, as the viewers watch the video while moving their heads, they sometime report higher perceived quality than other static viewer perceive on the same video at the same objective quality level.
+%the perceived quality is significantly improved, since user is unable to detect the distortion. 
+
+
+\myparashort{Factor\#2: Switches of luminance.} 
+As the viewer moves her view around, the viewed region may switch between different levels of brightness, or luminance. 
+%When user wears a HMD in VR display, environmental brightness perceived by eyes is totally depended on luminance of video content itself.  
+One of our findings is that when the scene changes dramatically from dark to light or vise versa, user's ability of detecting quality distortion also drops for a short period of time (typically \fillme seconds).
+As a result, when watching the same content encoded in the same objective quality, people report different levels of subjective quality depending on whether they have just watched something in different levels of luminance.
+
+
+\myparashort{Factor\#3: Depth of Field (DoF).} 
+A \vr display can simulate different depths-of-field (DoF) by showing the same object to the eyes with a specific binocular parallax (disparity). 
+We found that objects with small DoF (\ie closer to the viewer) have greater parallax, which lowers the viewer's sensitivity to quality distortion due to binocular fusion.
+As a result, a viewer might give different levels of attention to the objects of different DoF's, even if they are all close to the center of the viewport. \footnote{This paper assumes the object closest to the center of the viewport is the one watched by the viewer, which may not always hold. But this can be fixed if some gaze tracking mechanism (\eg~\cite{??,??}) is employed.}
+
+
+
+
+\mypara{Prevalence of the \vr video-specific factors}
+According to our data analysis, more than \fillme\% time, user's viewpoint is moving faster than \fillme \textdegree/s. 
+\jc{can you visualize such findings, and also show some numbers about the other two factors.}
+
+
+%\jc{
+%\begin{itemize}
+%\item p1: we first extend the jnd model with several \vr specific factors, 1, 2, 3
+%\item p2: with the new jnd model (explained latter), the potential improvement is tremendous!
+%\end{itemize}
+%}
+
+
+\mypara{Bounded sensitivity to quality differences}
+The intuition behind it, however, is more general---the viewer has a limited span of attention, which does not grow proportionally with the size of the video. 
+
+%The uneven distribution of \vr user's sensitivities can be explained by the attention theory~\cite{??,??}, which has been successfully applied to specialized video encoder and human-computer interface. 
+%The key concept is the just-noticeable difference (JND)---a user tends to notice the difference between two images/videos, only after the difference is greater than a threshold of JND, which depends heavily on the image/video content (as well as the context of the viewer).
+%\jc{add a few examples of JND, like content luminance, texture complexity}
+
+%The existing viewport-driven streaming protocols can be seen as one design point of using JND which only depends on the distance between a region and the viewport center. 
+%We have seen a few efforts to introduce the existing JND-based attention models in video streaming~\cite{??,??}, although so far their real application so far has been quite limited.
+
+
+\subsection{Potential for improvement}
+
+
+\subsection{Key challenges}
+
+
+
+
+

@@ -5,17 +5,17 @@
 
 %A desirable video streaming protocol should maximize user-perceived video quality under dynamic network conditions.
 A fundamental tension in any video streaming protocol is between the encoding efficiency and the agility of adaptation.
-If we know that a video segment will be streamed under a stable throughput, we can maximize the quality by aggressively eliminating the pixel-level spatio-temporal redundancies.
+If we know that a video segment will be streamed under a stable throughput, we can maximize the quality (\eg high resolution, no rebuffering) by aggressively eliminating the pixel-level spatio-temporal redundancies.
 But if a video is encoded too aggressively, it would be hard to adapt the quality level fast enough to cope with bandwidth fluctuations.
 %A case-in-point of this tradeoff is DASH~\cite{??,??,??}, which recently took hold as the mainstream video protocol. 
 %It balances the encoding efficiency and adaptation by splitting the video to fixed-length chunks (4-10 seconds) each encoded in discrete quality levels, allowing it to switch quality at chunk boundaries.
 
 
-The recent surge of \vr videos poses additional challenges to this tension between encoding efficiency and adaptation agility. 
-As many major content providers have rolled out \vr videos~\cite{??,??,??,??,??}, 
-it has become clear that the \vr videos are more challenging than traditional video streaming for two reasons.
+The recent surge of \vr videos poses new challenges to this tension between encoding efficiency and adaptation agility. 
+As many major content providers roll out \vr videos~\cite{??,??,??,??,??}, 
+it is clear that streaming \vr videos is more challenging than streaming traditional videos for two reasons.
 First, \vr videos must stream much more data (both in \vr and in higher resolution) without any interruption in order to create the immersive experience.
-Second, although we can reduce the data by streaming only the region directly facing the viewer (around \fillme\% of the panoramic view), doing so will force the encoder to use chunks of shorter durations (typically, one second) to catch up with the viewport movement, and thus significantly reduce the encoding efficiency.
+Second, although one can use less bandwidth by streaming only the region directly facing the viewer (around \fillme\% of the panoramic view), doing so will force the encoder to use chunks of shorter durations (typically, one second) to keep up with the viewport movement, which reduces the encoding efficiency.
 
 
 In this paper, we argue that there are still many unexploited opportunities to improve \vr video quality, through a {\em deeper understanding of how viewers perceive the \vr video quality}.
@@ -42,7 +42,7 @@ This paper presents {\em \name}, an encoding and streaming system that optimizes
 \name makes three contributions.
 
 \vspace{0.2cm}
-{\em First, \name is based on a new JND model which incorporates the factors driven by \vr video viewer actions.}
+{\em First, \name is based on a new unifying JND model which incorporates the factors driven by \vr video viewer actions.}
 We did a user study to model the impact of four viewer action-driven factors---movement velocity, relative depth-of-view, relative darkness, and distance-to-viewport---on viewer's sensitivity to quality degradation.
 The resulting JND model, referred to as {\em \vrjnd}, can predict, for any given video and viewport trajectory, the amount of quality changes  that are likely be perceivable by the viewer.
 
