@@ -28,10 +28,20 @@ Similarly, how sensitive the viewer is to a given quality difference depends gre
 Note that unlike in traditional videos, these factors are driven by ``user behaviors'' unique to \vr videos (see \S\ref{sec:motivation} for more discussions).
 
 
+
+
 The findings that humans have only bounded sensitivity to quality degradation can have great implications for \vr video streaming. 
 In theory, an ideal video streaming protocol can maximize perceived quality, if it always increases quality by a perceivable amount and saves bandwidth by lowering the quality by just an imperceivable amount. 
 Based on our user study over \fillme videos and \fillme viewers, we found that one can save \fillme\% bandwidth without any drop in perceived quality! (More discussions in \S\ref{sec:motivation:potential})
 
+
+
+\begin{figure}[t!]
+  \centering
+  \includegraphics[width=2.5in]{images/improvement.eps}
+  \caption{Effectiveness of \name at reducing the bandwidth consumption and improving QoE. \jc{TODO. an example graph with two curves comparing \name and a canonical \vr video streaming protocol. }}
+  \label{fig:intro-improvement}
+  \end{figure}
 
 The root of these opportunities is the fact that people have a limited span of attention.
 Consider when a viewer moves her head quickly, it does increase the viewport-covered area that has to be streamed and rendered, but the viewer's attention per-pixel (\ie sensitivity to quality degradation) actually drops due to the limited span of attention.
