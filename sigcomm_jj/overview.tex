@@ -1,11 +1,22 @@
 %!TEX root = main.tex
 
-\section{\name rationale and overview}
+\section{\name overivew}
+
+
+Figure~\ref{fig:overview} depicts an overview of \name. 
+\jc{describe the key ideas one by one}
+
+\begin{figure}[t!]
+  \centering
+  \includegraphics[width=3.5in]{figures/overview.pdf}
+  \caption{Overview of \name and how it fits to the existing \vr video streaming architecture.}
+  \label{fig:overview}
+  \end{figure}
 
 
 As stated in previous section, the biggest challenge of optimizing user-perceived quality is that perceived quality is related to both video content and user behavior. To solve the challenge, we show that perceived quality optimization can be decoupled: we can optimize video-content-related factors on server-side and optimize user-behavior-related factors on client-side.
 
-\subsection{Insights}
+%\subsection{Insights}
 In this section, we show that in VR streaming, each visual factor influences user-perceived quality independently. So we can decouple them into several single factors to measure perceived quality respectively, then we design an server-side offline tiling scheme only with consideration of video content, and design a client-side bitrate allocation method only with consideration of user behavior.
 
 \textbf{Insight 1: Perceived quality model in VR display can be built by simply adding several new factors on traditional perceived quality model.}
@@ -55,15 +66,8 @@ Suppose we can know information about video content, we can cut the video based 
 
 Although accurately computing perceived quality needs the information of both video content and actual user behavior, we can precompute perceived quality of given video content with each possible user behavior situations on server-side, without any information of actual user behavior, and transform the computation result to client. Client only needs to choose the situation which match actual user behavior most, then uses given perceived quality value to approximate the actual perceived quality. Experimental results prove that we can obtain very good approximation accuracy with very little end-to-end exchanging overhead of computation result transforming. 
 
-\subsection{\name system overview}
 
-
-\begin{figure}[t!]
-  \centering
-  \includegraphics[width=3.5in]{figures/overview.pdf}
-  \caption{Overview of \name and how it fits to the existing \vr video streaming architecture.}
-  \label{fig:overview}
-  \end{figure}
+\jc{need to mention \name is readily deployable. only changes the client-side and encoding, without involving the video sources and CDN operations}
 
 
 
@@ -84,8 +88,5 @@ Although accurately computing perceived quality needs the information of both vi
 
 
 
-\section{\vr video-specific JND}
 
-\section{\vrjnd-based spatial tiling}
 
-\section{\name streaming protocol}
