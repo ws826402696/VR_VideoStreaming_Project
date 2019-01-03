@@ -1,3 +1,41 @@
 %!TEX root = main.tex
 
-\section{\vr video-specific JND}
+\section{\vr video-specific QoE model}
+\label{sec:jnd}
+
+We first present a QoE model that estimates the subjective user experience when watching a \vr video.
+We build the model on an existing QoE model for non-\vr video streaming, and incorporate the new \vr video-specific factors (\S\ref{subsec:opportunities}).
+We begin with a brief introduction of the traditional video QoE model (\S\ref{subsec:jnd:pspnr}), then explain the general approach to incorporate the new factors (\S\ref{subsec:jnd:framework}), and finally provide details of how the new \vr video-specific factors affect the perceived QoE (\S\ref{subsec:jnd:details}).
+
+\subsection{PSPNR and JND}
+\label{subsec:jnd:pspnr}
+
+Peak Signal-to-Perceptible-Noise Ratio (PSPNR) \cite{PSPNR} is an widely-accepted metric to measure perceived quality. It is defined based on Just-Noticeable-Distortion (JND) theory \cite{JND}. Given the original video frame and a compressed video frame, user can notice their difference only if the difference between them is above a visibility threshold. When the different is under this threshold, it will not detected by user. This threshold is called Just-Noticeable-Distortion.
+
+Based on JND theory, PSPNR is defined by accumulating error of each pixel which can be detected by user:
+
+\begin{alignat}{2}\
+\label{f1} PSPNR = 20 \times \log_{10}\frac{255}{\sqrt{PMSE}}
+\end{alignat}
+\begin{alignat}{2}\
+PMSE=E\{ \left[ |p(x, y) - \hat{p}(x, y)| - JND(x, y)\right]^2 \times \Delta (x, y)\}
+\end{alignat}
+\begin{alignat}{2}\
+\Delta (x, y) =\left\{
+\begin{aligned}
+1, & &|p(x, y) - \hat{p}(x, y)| > JND(x, y) \\
+0, & &|p(x, y) - \hat{p}(x, y)| \le JND(x, y)
+\end{aligned}
+\right.
+\end{alignat}
+
+where $p(x, y)$ and $\hat{p}(x, y)$ are value of pixel $(x, y)$ in original video frame and compressed video frame. $JND(x, y)$ is the visibility threshold of pixel $(x, y)$.
+
+Compared with PSNR (which is widely used in evaluating video / image quality), the core difference of PSPNR is introducing a term $JND(x, y)$ for each pixel $(x, y)$. So how to compute JND for each pixel $(x, y)$ is an important issue. We will present our JND computation in the following section.
+
+\subsection{JND for \vr videos}
+\label{subsec:jnd:framework}
+
+
+\subsection{\vrjnd details}
+\label{subsec:jnd:details}
