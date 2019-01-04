@@ -1,0 +1,8 @@
+dof的delta
+实验数据放上去
+景深？想办法解释一下可预测或者预测不准不影响结果
+viewport-driven的baseline应该是一个现有的方法
+pspnr vs mos
+potential improvement，想个办法解释一下
+trace 生成 worst case
+cpu占用率
