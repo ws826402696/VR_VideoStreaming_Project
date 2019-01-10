@@ -4,18 +4,17 @@
 
 
 %A desirable video streaming protocol should maximize user-perceived video quality under dynamic network conditions.
-A key concern in video streaming is how to optimize video quality under fluctuating network bandwidth.
-On one hand, if the bandwidth is stable, one can maximize the quality (\eg high resolution, no rebuffering) by aggressively eliminating the pixel-level spatio-temporal redundancies.
-On the other hand, encoding the video too aggressively would make it hard to switch the quality level quickly enough to fully utilize the fluctuating bandwidth.
+%A key concern in video streaming is how to optimize video quality under fluctuating network bandwidth.
+%On one hand, if the bandwidth is stable, one can maximize the quality (\eg high resolution, no rebuffering) by aggressively eliminating the pixel-level spatio-temporal redundancies.
+%On the other hand, encoding the video too aggressively would make it hard to switch the quality level quickly enough to fully utilize the fluctuating bandwidth.
 %A case-in-point of this tradeoff is DASH~\cite{??,??,??}, which recently took hold as the mainstream video protocol. 
 %It balances the encoding efficiency and adaptation by splitting the video to fixed-length chunks (4-10 seconds) each encoded in discrete quality levels, allowing it to switch quality at chunk boundaries.
 
 %The recent surge of \vr videos poses new challenges.
 As many major content providers roll out \vr videos~\cite{??,??,??,??,??}, 
-it is clear that optimizing the quality of streaming \vr videos is more challenging than streaming traditional videos for two reasons.
+it is clear that streaming \vr videos is more challenging than streaming traditional videos for two reasons.
 First, \vr videos must stream much more data (both in \vr and in higher resolution) without interruption to create the immersive experience.
-Second, although a common optimization (\eg~\cite{??,??,??}) is to stream only the area facing the viewer (around \fillme\% of all picture), it forces the encoder to use shorter video chunks (typically, one second) to keep up with the viewpoint movement, which significantly increases the bandwidth consumption.
-
+Second, although one can save bandwidth by streaming only the area facing the viewer (around \fillme\% of whole frames), as commonly used in existing solutions(\eg~\cite{??,??,??,??}), it forces the encoder to use shorter video chunks (typically, one second) to keep up with the viewpoint movement, which significantly increases the bandwidth consumption.
 
 In this paper, we argue that there are still many unexploited opportunities to improve \vr video quality, through a {\em deeper understanding of how viewers perceive the \vr video quality}.
 The assumption behind many existing \vr video protocols is that the perceived quality of a region depends only on how far the region is to the viewport center.
