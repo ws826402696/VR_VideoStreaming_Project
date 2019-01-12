@@ -1,0 +1,136 @@
+\section{Performance Evaluation}
+
+In this section, we show that:
+
+\begin{itemize}
+
+\item In the network with fixed bandwidth, compared with state-of-the-art VR streaming system, PQVRS saves 45\% bandwidth on average while providing the same PSPNR, or provides 15-20 higher PSPNR in the same bandwidth.
+
+\item In the network with unstable bandwidth, PQVRS improves 10 higher PSPNR and decreases 50\% stalling.
+
+\item In real-world perceived quality rating by users, PQVRS can obtain notable higher user rating.
+
+\item PQVRS introduce less CPU workload than state-of-art VR streaming system.
+
+\end{itemize}
+
+\subsection{Evaluation Setup}
+
+To evaluate the performance, we implement PQVRS, a real-world VR streaming system which adaptively choose the quality of each part of video and display on HMD. Fig. \ref{network} shows the network topology in the experiment, which consists of a client and a server.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=3in]{images/network.jpg}
+  \caption{Network topology.}
+  \label{network}
+  \end{figure}
+
+In the experiments, we choose 50 videos with different types and lengths. We set the duration of one video segment as 1 second. To generate different quality videos, we use quantization parameter (QP) ranging from 22 to 42 in steps of five leading to five different bitrate versions. 
+
+In our experiment, 3 VR streaming systems are chosen to make comparison:
+
+\begin{itemize}
+
+\item \emph{Flare \cite{Flare}:} A state-of-the-art viewpoint-driven VR streaming. Video is cut into 4*6 spatial rectangular tiles. Tiles on user's viewpoint is allocated the high bitrate. For other tiles, bitrate is allocated linearly decreasing with its distance to user's viewpoint.
+
+\item \emph{PQVRS-:} Video is cut into 6*12 spatial rectangular tiles. With consideration of user viewpoint, content luminance and texture complexity, we do adaptive streaming to maximize user-perceived quality.
+
+\item \emph{PQVRS:} Our proposed method in this paper. Object-based video tiling is used to cut video into tiles with different size. Besides user viewpoint, content luminance and texture complexity, we also take consideration of viewpoint moving speed, content Depth-of-Field and light / dark adaptation, and do adaptive streaming to maximize user-perceived quality.
+
+\end{itemize}
+
+\subsection{Performance under network with different bandwidth stability}
+
+In the real world, VR streaming may happen in all kinds of networks, such as Ethernet, Wifi and LTE. In the application layer, although they have no protocol difference, the stability of bandwidth of these networks are very different (due to different packet loss rate, jitter in transport layer). A good VR streaming protocol should be robust on network with different bandwidth stability. So in this section, we evaluate the performance of Flare, PQVRS- and PQVRS on both fixed bandwidth and real-world bandwidth with different bandwidth stability.
+
+\subsubsection{Performance comparison under fixed bandwidth}
+
+When network is under a fixed bandwidth, video streaming is stalling-free since the requested video segment will always be retrieved back to client on time. User perceived quality is almost only related to PSPNR. So we test the PSPNR-bandwidth tradeoff for above methods under fixed bandwidth. Fig. \ref{practical_imp} shows the result. Compared with Flare, PQVRS saves 45\% bandwidth on average while providing the same PSPNR, or provides 15-20 higher PSPNR in the same bandwidth.
+
+  \begin{figure}
+  \centering
+  \includegraphics[width=3in]{images/practical_improvement.eps}
+  \caption{PSPNR-bandwidth tradeoff of 4 methods: Viewpoint-driven, PQVRS-, PQVRS, theoretical performance.}
+  \label{practical_imp}
+  \end{figure}
+
+\subsubsection{Performance comparison under real-world bandwidth}
+
+Actually, in real-world video streaming, bandwidth is unstable which may change significantly in a short time. When the bandwidth change dramatically from a high level to a low level, it not only decrease the value of PSPNR, but also causes stalling in video display, which is another important metric of perceived quality.
+
+We test the performance of Viewpoint-driven, PQVRS-, PQVRS under the network with 800 kb/s bandwidth on average, but with different levels of bandwidth fluctuation. 
+
+   \begin{figure}
+  \centering
+  \includegraphics[width=3in]{images/throughput-PSPNR.eps}
+  \caption{PSPNR of 4 methods: Viewpoint-driven, PQVRS-, PQVRS, theoretical performance.}
+  \label{practical_PSPNR}
+  \end{figure}
+  
+    \begin{figure}
+  \centering
+  \includegraphics[width=3in]{images/throughput-stalltime.eps}
+  \caption{Stalling tradeoff of 4 methods: Viewpoint-driven, PQVRS-, PQVRS, theoretical performance.}
+  \label{practical_stall}
+  \end{figure}
+
+Fig. \ref{practical_PSPNR} presents average PSPNR of 3 methods, and Fig. \ref{practical_stall} presents average time of stalling of 3 methods.Result show that PQVRS improves 10 higher PSPNR and decreases 50\% stalling.
+
+\subsection{Performance robustness under random user behavior}
+
+In VR streaming, any system which takes advantage of viewpoint prediction or other user behavior prediction, will definitely suffer from the risk of prediction error due to randomness of user behavior. Although in most cases, user behavior (viewpoint, speed) is predictable, however, when user behavior is unpredictable, a robust streaming system should also present an acceptable performance, which will not give user a seriously bad perceived quality.
+
+We generate a database of randomly moving user viewpoint, with different average moving speed. In our generated database, user's viewpoint is moving with a random speed to a random direction in each second, so it is completely unpredictable. Fig. \ref{random_improvement} shows our improvement compared with Viewpoint-driven method on these viewpoint traces.
+
+    \begin{figure}
+  \centering
+  \includegraphics[width=3in]{images/random_improvement.eps}
+  \caption{PSPNR improvement of PQVRS-, PQVRS and theoretical cases on random viewpoint traces, compared with viewpoint-driven VR streaming.}
+  \label{random_improvement}
+  \end{figure}
+
+In this random, unpredictable user behavior, when viewpoint moving speed is below 20 deg/s, PQVRS can still reach a good performance. Of course, in the worst case, when the speed get large enough, the predicted viewport will be totally wrong. PQVRS has nearly no improvement compared with viewpoint driven VR streaming since they both allocate high video quality on absolutely wrong place. But Fig. \ref{random_improvement} shows that in any case, PQVRS does not perform poorly than it.
+
+\subsection{Real-world user rating}
+
+Based on our real-world VR streaming system, we compare above methods by real-world user rating. 
+
+20 subjects participated in the experiments. For each subject, we shown him (her) a same VR video which is streaming by Viewpoint-driven, PQVRS- and PQVRS in the same network condition. The order of display by 3 methods is random. After 3 displays, the object needs to give a rating of perceived quality for them. The rules of rating is shown in Fig. \ref{rating_rules}.
+
+    \begin{figure}
+  \centering
+  \includegraphics[width=3in]{images/rating.jpg}
+  \caption{User rating rules.}
+  \label{rating_rules}
+  \end{figure}
+
+Fig. \ref{rating_res} presents the result of user rating. Proposed PQVRS obtains score 4.2 on average, while PQVRS- gets 2.7 and Flare gets only 1.4.
+
+    \begin{figure}
+  \centering
+  \includegraphics[width=3in]{images/rating_result.png}
+  \caption{User rating results.}
+  \label{rating_res}
+  \end{figure}
+
+\subsection{Analysis of VR streaming workload}
+
+We implement a prototype of Flare, PQVRS-, and test their workload on Dell Precision 7920, to make comparison with proposed PQVRS.
+
+First we test client-side CPU workload. Although Dell Precision 7920 is a work station with 40 CPUs, now we only make 1 of them available, in order to simulate the performance on normal VR devices. Fig. \ref{CPUclient} shows the comparison of client-side CPU occupancy rate between Flare, PQVRS- and PQVRS, when streaming a 2880*1440 VR video for 1 minute duration. We notice that 85\% CPU workload comes from video decoding \& rendering, and content downloading, perceived quality computation and quality allocation in PQVRS introduce negligible CPU workload. In total, PQVRS saves 5\% CPU workload compared with Flare. This marginal benefit is mainly because we decreases the number of tiles need to be decoded by clients per segment, which makes decoder a bit faster. (as described in \S 7)
+
+    \begin{figure}
+  \centering
+  \includegraphics[width=3in]{images/CPUworkload.eps}
+  \caption{Client-side CPU workload comparison between Flare, PQVRS- and PQVRS.}
+  \label{CPUclient}
+  \end{figure}
+  
+Server-side workload comparison is done with all 40 CPU available. Result is shown in Fig. \ref{CPUserver}. Since all modules on server-side are offline works, we test the CPU processing time for each single 1-minute VR video, rather than CPU occupancy rate. Results show that the dominant part of server-side processing time is video encoding. The processing time of PSPNR computation is negligible. So PQVRS doesn't introduce considerable workload for video server.
+
+    \begin{figure}
+  \centering
+  \includegraphics[width=3in]{images/Processtime.eps}
+  \caption{Server-side CPU workload comparison between Flare, PQVRS- and PQVRS.}
+  \label{CPUserver}
+  \end{figure}
