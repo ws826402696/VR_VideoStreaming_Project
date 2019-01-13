@@ -4,3 +4,4 @@
 4.带宽波动下的performance没画error bar。
 5.potential improvement里的viewpoint-driven的方法比现有方法先进了一点，需要改成现有方法。
 6.VRJND based tiling
+7.卡顿率、pspnr的tradeoff
