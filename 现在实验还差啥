@@ -3,4 +3,12 @@
 3.PSPNR v.s. user rating只有1个视频的结果。
 4.potential improvement里的viewpoint-driven的方法比现有方法先进了一点，需要改成现有方法。
 5.VRJND based tiling
-6.卡顿率、pspnr的tradeoff
+
+
+
+最近更新：
+sigcomm0113:
+（1）整个paper的第一张图（图1）
+（2）真实带宽波动下的大量实验，带sem的图（图25，26）
+（3）component-wise的improvement（图24）
+（4）视点随机运动下的improvement（图27）
