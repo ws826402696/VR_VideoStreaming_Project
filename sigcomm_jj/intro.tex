@@ -11,16 +11,19 @@
 %It balances the encoding efficiency and adaptation by splitting the video to fixed-length chunks (4-10 seconds) each encoded in discrete quality levels, allowing it to switch quality at chunk boundaries.
 
 %The recent surge of \vr videos poses new challenges.
-\vr videos are coming to age, as many major content providers roll out \vr videos~\cite{??,??,??,??,??}.
-Howeve, it is clear that streaming \vr videos is much more challenging than streaming non-\vr videos.
-\vr videos must cover a 360\textdegree{} view in high resolution, \ie streaming more data without interruption, to create the immersive experience~\cite{??}. 
-Although one can save bandwidth by streaming only the area facing the viewer, doing so would (1) require accurately tracking the viewpoint movements which itself is not trivial, and (2) force the encoder to use shorter video chunks (\eg one second) to keep up with the movements of the viewpoint, which significantly reduces the coding efficiency and increases the bandwidth consumption.
+\vr videos are coming to age, with most major content providers roll out \vr videos~\cite{??,??,??,??,??}.
+At the same time, it has become clear that streaming \vr videos is much more challenging than streaming non-\vr videos.
+To create an immersive experience, \vr videos must cover a larger area in high resolution than traditional videos without interruption~\cite{??}. 
+As a result, \vr video streaming is much more bandwidth -intensive than traditional videos.
+To put it into perspective, streaming a typical one-minute \vr video~\cite{give the url} as a regular video (\ie no head movement) takes only \fillme MB, whereas streaming it as a \vr video using state-of-the-art \vr streaming protocol takes \fillme MB, a \fillme$\times$ increase in bandwidth consumption.
+%Although one can save bandwidth by streaming only the area facing the viewer, doing so would (1) require accurately tracking the viewpoint movements which itself is not trivial, and (2) force the encoder to use shorter video chunks (\eg one second) to keep up with the movements of the viewpoint, which significantly reduces the coding efficiency and thus increases the bandwidth consumption.
 
-Existing approaches to \vr video streaming have largely relied on the same QoE (quality of experience) model of non-\vr videos. 
-At a high level, the QoE model describes the correlation between how a video is presented to the viewer (\eg pixel-level differences to the original feed) and the user-perceived satisfaction, or QoE.
-Notably, many recent proposals considers the {\vr}video-specific factor that the impact of the quality level of a spatial area also depends on its distance to the center of the viewpoint (\eg~\cite{??,??,??,??}).
-But other than the above factor, the assumed QoE model remains largely the same, and this fundamentally limits the room for improvement of \vr videos.
-
+A key limiting factor in existing solutions for \vr video streaming is that they have largely relied on the same QoE (quality of experience) model of non-\vr videos. 
+In other words, they believe the impact of encoded quality of the video (\eg pixel-level distortion) on QoE is the same to traditional videos, which fundamentally limits the room for improvement of \vr videos.
+%At a high level, the QoE model describes the correlation between how a video is presented to the viewer (\eg pixel-level differences to the original feed) and the user-perceived satisfaction, or QoE.
+Notably, many recent proposals does consider a {\vr}video-specific factor that the perceived QoE of a spatial area also depends on the region's distance to user's real-time viewpoint (\eg~\cite{??,??,??,??}).
+So one can save bandwidth by streaming only the area facing the viewer, but doing so would (1) require accurately tracking the viewpoint movements which itself is not trivial, and (2) force the encoder to use shorter video chunks (\eg one second) to keep up with the movements of the viewpoint, which significantly reduces the coding efficiency and thus increases the bandwidth consumption.
+%But other than the above factor, the assumed QoE model remains largely the same, and this fundamentally limits the room for improvement of \vr videos.
 
 In this paper, we argue that there are still many unexploited opportunities to improve \vr video quality, through a {\em deeper understanding of how viewers perceive the \vr video quality}.
 Contrary to the conventional wisdom that the perceived quality of a region in the 360\textdegree{} view depends only on its distance to the viewpoint and the encoded quality level, we found that the perceived quality of a \vr video is heavily influenced by several other factors unique to \vr videos---the {\em velocity} of the head movement, the {\em relative depth} of the viewed objects, and the {\em relative luminance} of the objects compared to those the user have just watched. 
