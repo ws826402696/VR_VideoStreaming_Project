@@ -25,20 +25,21 @@ Notably, many recent proposals does consider a {\vr}video-specific factor that t
 So one can save bandwidth by streaming only the area facing the viewer, but doing so would (1) require accurately tracking the viewpoint movements which itself is not trivial, and (2) force the encoder to use shorter video chunks (\eg one second) to keep up with the movements of the viewpoint, which significantly reduces the coding efficiency and thus increases the bandwidth consumption.
 %But other than the above factor, the assumed QoE model remains largely the same, and this fundamentally limits the room for improvement of \vr videos.
 
-In this paper, we argue that there are still many unexploited opportunities to improve \vr video quality, through a {\em deeper understanding of how viewers perceive the \vr video quality}.
-Contrary to the conventional wisdom that the perceived quality of a region in the 360\textdegree{} view depends only on its distance to the viewpoint and the encoded quality level, we found that the perceived quality of a \vr video is heavily influenced by several other factors unique to \vr videos---the {\em velocity} of the head movement, the {\em relative depth} of the viewed objects, and the {\em relative luminance} of the objects compared to those the user have just watched. 
+In this paper, we argue that there are still many untapped opportunities to improve \vr video QoE with a {\em deeper understanding of how viewers perceive the \vr video quality}.
+In addition to the conventional belief that \vr video QoE only depends on the encoded quality level and real-time viewpoint, 
+%the 360\textdegree{} view depends only on its distance to the viewpoint and the encoded quality level, 
+we found that the perceived quality of a \vr video is heavily influenced by several other factors unique to \vr videos---the {\em velocity} of the head movement, the {\em relative depth-of-field} of the viewpoint with respect to surrounding objects, and the {\em relative luminance} of the objects compared to those the user have just watched. 
 %That is the viewport position and video quality, we found that a \vr video at least three reasons: the velocity of head movement, how the relative depth of the viewed objects, as well as the brightness of the objects compared to those the user have just watched. 
-
-In our user study, for instance, when shown the same video at different quality levels, most viewers can perceive quality difference between videos when their viewport is static, but cannot tell any visible difference when the users move their viewport (\eg shaking head or browsing the landscape).
-Similarly, how sensitive the viewer is to a given quality difference depends greatly on how further/closer the object is or how much brighter/darker compared to objects that the viewer just saw.
+For instance, when shown the same video encoded at different quality levels, most viewers are very sensitive to even small quality distortion when the viewports are static, but the sensitivity drops sharply when they move the viewpoints (\eg shaking head or browsing the landscape). 
+%Similarly, how sensitive the viewer is to a quality distortion depends greatly on how further/closer the object is or how much brighter/darker compared to objects that the viewer just saw.
 Note that unlike in traditional videos, these factors are driven by ``user behaviors'' unique to \vr videos (see \S\ref{sec:motivation} for more discussions).
 
 
-
-
-The findings that humans have only bounded sensitivity to quality degradation can have great implications for \vr video streaming. 
-In theory, an ideal video streaming protocol can maximize perceived quality, if it always increases quality by a perceivable amount and saves bandwidth by lowering the quality by just an imperceivable amount. 
-Based on our user study over \fillme videos and \fillme viewers, we found that one can save \fillme\% bandwidth without any drop in perceived quality! (More discussions in \S\ref{sec:motivation:potential})
+These observations 
+%that humans have only bounded sensitivity to quality degradation can 
+have great implications for \vr video streaming. 
+In theory, an ideal video streaming protocol can improved the perceived quality, if it always increases the quality by a perceivable amount and saves bandwidth by lowering the quality by an imperceivable amount. 
+Based on an empirical study over \fillme videos and \fillme viewers, we found that one can save \fillme\% bandwidth without any drop in perceived quality! (More discussions in \S\ref{sec:motivation:potential})
 
 
 
@@ -50,9 +51,9 @@ Based on our user study over \fillme videos and \fillme viewers, we found that o
   \end{figure}
 
 The root of these opportunities is the fact that people have a limited span of attention.
-Consider when a viewer moves her head quickly, it does increase the viewport-covered area that has to be streamed and rendered, but the viewer's attention per-pixel (\ie sensitivity to quality degradation) actually drops due to the limited span of attention.
+For instance, if a viewer moves her viewpoint quickly, it does increase the area that has to be streamed, but the viewer's ``per-pixel'' attention per-pixel (\ie sensitivity to quality degradation) actually drops as the limited span of attention spread out spatially.
 Similar ideas have been used by video encoders to compress videos via exploiting the ``Just Noticeable Difference'' (JND)~\cite{??,??,??}---the minimal visual difference perceivable by humans, \eg viewers generally have larger JND when watching a more complex scene. 
-However, conventional JND only models the content-specific factors (since it assumes a static viewport), as opposed to the factors driven by changes . 
+However, conventional JND only models the content-specific factors (since it assumes a static viewport), as opposed to the factors driven by user behaviors. 
 
 This paper presents {\em \name}, an encoding and streaming system that optimizes the user-perceived quality of \vr videos. 
 \name makes three contributions.
