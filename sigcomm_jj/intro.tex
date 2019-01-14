@@ -39,7 +39,7 @@ These observations
 %that humans have only bounded sensitivity to quality degradation can 
 have great implications for \vr video streaming. 
 In theory, an ideal video streaming protocol can improved the perceived quality, if it always increases the quality by a perceivable amount and saves bandwidth by lowering the quality by an imperceivable amount. 
-Based on an empirical study over \fillme videos and \fillme viewers, we found that one can save \fillme\% bandwidth without any drop in perceived quality! (More discussions in \S\ref{sec:motivation:potential})
+Based on an empirical study over \fillme videos and \fillme viewers, we found that one can save \fillme\% bandwidth and \fillme\% less buffering ratio without any drop in perceived quality! (More discussions in \S\ref{sec:motivation:potential})
 
 
 
@@ -50,12 +50,12 @@ Based on an empirical study over \fillme videos and \fillme viewers, we found th
   \label{fig:intro-improvement}
   \end{figure}
 
-The root of these opportunities is the fact that people have a limited span of attention.
+These opportunities stem from the fact that people have a limited span of attention.
 For instance, if a viewer moves her viewpoint quickly, it does increase the area that has to be streamed, but the viewer's ``per-pixel'' attention per-pixel (\ie sensitivity to quality degradation) actually drops as the limited span of attention spread out spatially.
 Similar ideas have been used by video encoders to compress videos via exploiting the ``Just Noticeable Difference'' (JND)~\cite{??,??,??}---the minimal visual difference perceivable by humans, \eg viewers generally have larger JND when watching a more complex scene. 
 However, conventional JND only models the content-specific factors (since it assumes a static viewport), as opposed to the factors driven by user behaviors. 
 
-This paper presents {\em \name}, an encoding and streaming system that optimizes the user-perceived quality of \vr videos. 
+This paper presents {\em \name}, an encoding and streaming system that optimizes the user-perceived QoE of \vr videos.
 \name makes three contributions.
 
 \vspace{0.2cm}
