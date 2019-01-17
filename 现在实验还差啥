@@ -1,12 +1,16 @@
-1.CPU占用率，一部分数据是编的。
-2.不同方法的user rating只有1个视频的结果。
-3.PSPNR v.s. user rating只有1个视频的结果。
-4.potential improvement里的viewpoint-driven的方法比现有方法先进了一点，需要改成现有方法。
-5.VRJND based tiling
-
+1.server端的CPU workload。
+2.VRJND tiling一个视频效果不错，需要大量视频跑出来
+3.解决下图29和图30的矛盾
+4.ddl前做一个简易的streaming系统
 
 
 最近更新：
+sigcomm0116:
+（1）整个paper的第一张图，所有video的（图1）
+（2）pspnr vs mos （图29）
+（3） end to end user rating（图30） 
+
+
 sigcomm0113:
 （1）整个paper的第一张图（图1）
 （2）真实带宽波动下的大量实验，带sem的图（图25，26）
