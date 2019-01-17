@@ -1,0 +1,89 @@
+\documentclass[sigconf]{acmart}
+
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage{bm}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{subfig}
+\usepackage{algorithm} 
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{epstopdf}
+\usepackage{hyperref}
+\usepackage{amsfonts}
+\usepackage{algpseudocode}
+
+% Copyright
+\renewcommand\footnotetextcopyrightpermission[1]{} % removes footnote with conference info
+\setcopyright{none}
+%\setcopyright{acmcopyright}
+%\setcopyright{acmlicensed}
+%\setcopyright{rightsretained}
+%\setcopyright{usgov}
+%\setcopyright{usgovmixed}
+%\setcopyright{cagov}
+%\setcopyright{cagovmixed}
+
+\settopmatter{printacmref=false, printccs=false, printfolios=true}
+
+% DOI
+\acmDOI{}
+
+% ISBN
+\acmISBN{}
+
+%Conference
+%\acmConference[Submitted for review to SIGCOMM]{}
+%\acmYear{2018}
+%\copyrightyear{}
+
+%% {} with no args suppresses printing of the price
+\acmPrice{}
+
+
+\begin{document}
+\title{Perceived Quality driven VR Streaming}
+
+%\titlenote{Produces the permission block, and copyright information}
+%\subtitle{Extended Abstract}
+
+\author{Paper \# XXX, XXX pages}
+% \author{Firstname Lastname}
+% \authornote{Note}
+% \orcid{1234-5678-9012}
+% \affiliation{%
+%   \institution{Affiliation}
+%   \streetaddress{Address}
+%   \city{City} 
+%   \state{State} 
+%   \postcode{Zipcode}
+% }
+% \email{email@domain.com}
+
+% The default list of authors is too long for headers}
+\renewcommand{\shortauthors}{X.et al.}
+
+\begin{abstract}
+In recent years, Virtual Reality (VR) video streaming becomes popular quickly. How to provide high user-perceived quality with limited bandwidth becomes the biggest problem in VR video streaming. Traditional viewpoint-driven VR streaming makes the assumption that perceived quality is only related to viewpoint-object distance, so it simply allocates high bitrate to objects near user's viewpoint. However, In this paper we prove that user perceived quality is not only related to viewpoint-object distance, it is also related to background luminance, texture complexity, viewpoint moving speed and Depth-of-Field. With consideration of these insights, we can save x\% bandwidth while providing the same perceived quality.
+
+To build our PQVRS, we build a model to measure perceived quality in VR display, and design an object-based tiling scheme to cut video into several tiles which can be independently encoded / decoded. Then we present our method to enable client-side perceived quality computation and optimization. We implement a prototype of PQVRS and compare its performance with state-of-art VR streaming schemes. Experimental results show that proposed PQVRS saves x\% bandwidth without decrease of perceived quality.
+\end{abstract}
+
+\maketitle
+
+\input{sections/introduction}
+\input{sections/motivation}
+\input{sections/insights}
+\input{sections/jNDmodel}
+\input{sections/tiling}
+\input{sections/adaptation}
+\input{sections/implementation}
+\input{sections/evaluation}
+\input{sections/Relatedworks}
+\input{sections/conclusion}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{reference}
+
+\end{document}

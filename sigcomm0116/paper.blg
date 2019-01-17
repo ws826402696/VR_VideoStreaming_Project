@@ -1,0 +1,90 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: paper.aux
+The style file: ACM-Reference-Format.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: reference.bib
+Warning--entry type for "github" isn't style-file defined
+--line 11 of file reference.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--no key, author in github
+Warning--no author, editor, organization, or key in github
+Warning--to sort, need author or key in github
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Warning--no key, author in github
+Warning--no key, author in github
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--no key, author in github
+Warning--no author, editor, organization, or key in github
+Warning--empty author in github
+Warning--empty year in github
+Warning--empty publisher in viewpoint-driven1
+Warning--empty address in viewpoint-driven1
+Warning--page numbers missing in both pages and numpages fields in viewpoint-driven1
+Warning--empty publisher in distance
+Warning--empty address in distance
+Warning--numpages field, but no articleno or eid field, in buffer
+Warning--empty publisher in viewpoint-driven3
+Warning--empty address in viewpoint-driven3
+Warning--no journal in viewpoint-driven4
+Warning--no number and no volume in viewpoint-driven4
+Warning--numpages field, but no articleno or eid field, in viewpoint-driven5
+Warning--numpages field, but no articleno or eid field, in Flare
+Warning--empty publisher in VPprediction
+Warning--empty address in VPprediction
+Warning--empty publisher in yolo
+Warning--empty address in yolo
+Warning--empty publisher in luminance1
+Warning--empty address in luminance1
+Warning--empty publisher in BOLA
+Warning--empty address in BOLA
+Warning--empty publisher in MPC
+Warning--empty address in MPC
+Warning--empty booktitle in viewpoint-driven6
+Warning--empty publisher in viewpoint-driven6
+Warning--empty address in viewpoint-driven6
+You've used 26 entries,
+            5795 wiz_defined-function locations,
+            1483 strings with 20097 characters,
+and the built_in function-call counts, 33318 in all, are:
+= -- 4271
+> -- 1090
+< -- 0
++ -- 372
+- -- 442
+* -- 2301
+:= -- 3221
+add.period$ -- 127
+call.type$ -- 26
+change.case$ -- 177
+chr.to.int$ -- 25
+cite$ -- 64
+duplicate$ -- 2933
+empty$ -- 2064
+format.name$ -- 477
+if$ -- 8177
+int.to.chr$ -- 3
+int.to.str$ -- 1
+missing$ -- 112
+newline$ -- 244
+num.names$ -- 199
+pop$ -- 1144
+preamble$ -- 1
+purify$ -- 403
+quote$ -- 0
+skip$ -- 1019
+stack$ -- 0
+substring$ -- 2686
+swap$ -- 310
+text.length$ -- 113
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 595
+warning$ -- 34
+while$ -- 204
+width$ -- 0
+write$ -- 483
+(There were 35 warnings)
