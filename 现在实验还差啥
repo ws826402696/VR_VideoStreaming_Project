@@ -1,11 +1,12 @@
-1.server端的CPU workload。
+1.client端的ram workload。
 2.VRJND tiling一个视频效果不错，需要大量视频跑出来
 3.解决下图29和图30的矛盾
 4.ddl前做一个简易的streaming系统
+5.跟buffer相关的实验改用网上能下载到的真实throughput trace。
 
 需要讨论：
 1.是否需要discussion一节，讨论下reviewer可能关心的问题，例如我们的视频都是2k的，有没啥办法说明一下在更高分辨率下我们的方法也一样work？
-2.第1张图最好在真实trace下做。网上可以下载到真实的throughput trace。
+
 
 
 最近更新：
