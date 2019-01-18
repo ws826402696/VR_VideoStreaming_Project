@@ -1,0 +1,133 @@
+\section{Client-side PSPNR computation and optimization}
+
+In client-side PSPNR optimization, client first need to compute PSPNR value for each rate allocation. However, PSPNR computation needs information of both video content and user behavior. In practice, client is unaware of video content before actually receiving video content. How to decouple PSPNR computation process to let client-side get PSPNR value without knowing information of video content is a big challenge.
+
+To optimize PSPNR on client-side, we first present an approximation of PSPNR computation, then we describe our algorithm of client-side PSPNR optimization.
+
+\subsection{Client-side PSPNR computation}
+
+First we decouple JND into Content JND (CJND) and Behavior JND (BJND). We define a pixel $(x, y)$'s Content JND (CJND) as:
+
+\begin{equation}
+\begin{aligned}
+CJND(x, y) = \max \{ f_{lum}(l(x, y)) , f_{text}(t(x, y))\} \times f_{DoF}(D(x, y)) \label{CJND}
+\end{aligned}
+\end{equation}
+
+CJND is only related to video content. It can be pre-computed on server-side.
+
+We define Behavior JND (BJND) as:
+
+\begin{equation}
+\begin{aligned}
+BJND(x, y) =  f_{dist}(d(x, y)) \times f_{speed}(v) \times f_{adapt}(\Delta e) \label{BJND}
+\end{aligned}
+\end{equation}
+
+BJND is only related to client behavior, it is totally independent from video content so it can be obtain on client-side. 
+
+Based on (\ref{CJND}) and (\ref{BJND}), equation (1) can be rewritten as:
+
+\begin{alignat}{2}\
+\label{f1} PSPNR = 20 \times \log_{10}\frac{255}{\sqrt{PMSE}}
+\end{alignat}
+\begin{alignat}{2}\
+PMSE=E\{ \left[ |p(x, y) - \hat{p}(x, y)| - CJND(x, y) \times BJND(x, y)\right]^2 \times \Delta (x, y)\} \label{apprxPMSE}
+\end{alignat} 
+
+Given a tile, although the CJND value of different pixel may vary greatly, we notice that BJND value of different pixels are not so different. This is because:
+
+ (1) All pixels in one tile share the same $f_{speed}(v)$ and $f_{adapt}(\Delta e)$. 
+ 
+ (2) Although strictly, $f_{dist}(d(x, y))$ is different for different pixel $(x, y)$, pixels in the same tile is usually spatial adjacent. Their distance to user viewpoint is roughly the same, so they usually have similar $f_{dist}(d(x, y))$ value.
+
+Based on above insight, we use only one BJND value in one tile, instead of one BJND value for each pixel. We suppose $(x_{mid}, y_{mid})$ is the pixel in the center of the tile, then we can approximate (\ref{apprxPMSE}) as:
+
+\begin{alignat}{2}\
+PMSE \approx E\{ \left[ |p(x, y) - \hat{p}(x, y)| - CJND(x, y) \times BJND(x_{mid}, y_{mid})\right]^2 \times \Delta (x, y)\} \label{apprx}
+\end{alignat} 
+
+Now, in (\ref{apprx}), server has all information (including $p(x, y)$, $\hat{p}(x, y)$, $CJND(x, y)$, $\Delta (x, y)$) with only exception of one single value: $BJND(x_{mid}, y_{mid})$. Moreover, according to definition of PSPNR, PSPNR is strictly monotonically increasing with $BJND(x_{mid}, y_{mid})$. So in practice, server can presuppose $N$ different BJNDs offline to compute $N$ corresponding PSPNRs by (\ref{apprx}), then transforms these PSPNR values to client-side. Client-side computes the actual $BJND(x_{mid}, y_{mid})$ value and choose the nearest presupposed BJND, then obtain the corresponding PSPNR value.
+
+In real-world implementation, in order to further improve PSPNR approximation accuracy, when the actual $BJND(x_{mid}, y_{mid})$ is in the gap between 2 adjacent presupposed BJNDs, we simply compute the actual PSPNR by linear regression. Fig. \ref{PSPNR_computation} shows the approximation accuracy. In 88\% situations, error rate of proposed method is less than 5\%. In realtime VR video streaming, PSPNRs of presupposed BJNDs are packaged in MPD file which can be downloaded by client, their bandwidth cost is negligible.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=2.5in]{images/PSPNR_computation.eps}
+  \caption{CDF of PSPNR approximation accuracy.}
+  \label{PSPNR_computation}
+  \end{figure}
+
+\subsection{PSPNR optimization}
+
+Client-side PSPNR optimization consists of 2 levels:
+
+\emph{Level 1:} In constraint bandwidth consumption and buffer size, allocate the bitrate of each temporal segment.
+
+\emph{Level 2:} For each temporal segment, after its bitrate is allocated, distribute the bitrate to each spatial tile.
+
+\subsubsection{Level 1: Allocating bitrate of each temporal segment}
+
+Suppose a VR video consists of $K$ temporal segments: $s_1$ , $s_2$, ... , $s_K$. For segment $s_k$, when it is allocated $R_k$ bandwidth, it can obtain $q_{k}(R_k)$ PSPNR. Our problem is to allocate bitrate $R_1$, $R_2$, ... , $R_K$ for each temporal segment.
+
+When the client is allocating bitrate for video segment $s_k$, suppose the buffer status is $B_k$ and the bandwidth throughput prediction is $C_k$. Moreover, the previous video segment $s_{k-1}$ has been allocated the bitrate $R_{i-1}$, thus its perceived quality is $q_{k-1}(R_{k-1})$. In rate adaptation logic, making decision of $R_k$ should take consideration of these values (\cite{BOLA}, \cite{MPC}) to avoid rebuffing and quality fluctuation.
+
+Then the rate allocation problem can be formalized as:
+
+\begin{equation}
+\begin{aligned}
+R_k = f(q_{k-1}(R_{k-1}), B_k, C_k)
+\end{aligned}
+\end{equation}
+
+Fortunately, BOLA (Near-Optimal Bitrate Adaptation for Online Videos) \cite{BOLA} is a well-known method to solve the problem completely on client-side, and it has been well built in Dashjs. Given the value of $R_{i-1}, B_i, C_i$, the algorithm output an appropriate $R_i$. So BOLA can be directly applied on the Level 1 rate allocation. We leave the detail of BOLA design out of this paper since there are plenty of works about BOLA design in rate adaptation.
+
+\subsubsection{Level 2: Allocating bitrate of each spatial tiles}
+
+In above Level 1 rate allocation, two questions are remained: (1) Given rate allocation $R_k$ for temporal segment $s_k$, how to allocate the bitrate to each tile in segment $s_k$. (2) How to build $q_k(R_k)$, the mapping from bitrate to PSPNR. 
+
+Actually, the second question can be merged into the first question: For a temporal segment $s_k$, when the bitrate of each tile is determined according to $R_k$, its PSPNR $q_k(R_k)$ is determined. So the problem of Level 2 rate allocation is how to distribute $R_k$ bitrate to each tile to optimize $q_k(R_k)$.
+
+According to (\ref{f1}), PSPNR is monotonous decreasing with PMSE. Maximizing PSPNR is equivalent to minimizing PMSE.
+
+Suppose we separate the video segment $s_k$ into $N_k$ spatial tiles, numbered 1, 2, ..., $N_k$. They are encoded into $M$ quality levels with different bitrate. We define $r_{i, j}$ as bitrate of chunk $i$ with level $j$. We define the optimal quality level for $i$-th tile as $l_i$ and define PMSE value of tile $i$ with $j$th bitrate as $p_{i, j}$.
+
+Therefore, at each adaptation step, the client needs to solve the following optimization problem to minimizing PMSE:
+
+\begin{equation}
+\begin{aligned}
+\min_{l: l_i \in [1, M]} \text{~~~~~~} & \text{~~~~} \sum_{i = 1}^N p_{i, l_i} \\
+\text{s.t.} \text{~~~~} & \text{~~~~}\sum_{i=1}^N r_{i,l_i} \le R_kW.
+\end{aligned}
+\end{equation}
+
+\begin{algorithm}[t]
+\caption{ PSPNR driven Rate Allocation Algorithm.}
+\label{alg:Framwork}
+\begin{algorithmic}[1]
+\Require
+Throughput bound, $R_k$;
+Number of tiles, $N_k$;
+Number of rates, $M$;
+Rate set, $\{r_{i,j}\}$;
+PMSE set, $\{p_{i,j}\}$;
+\Ensure
+Allocation rate levels set, $\{l_i\}$;
+\State Initialize knapsack revenue table $\mathcal{K}\in \mathbb{R}^{(N_k+1)\times R_k}$ by 0;
+\State Construct the prefix table $\mathcal{P}\in \mathbb{Z}^{(N+1)\times R_k}$;
+\For {$i$ from 1 to $N_k$}
+  \For {$b \in [0,B]$}
+    \State $\mathcal{K}_{i,b} = \min_{j\in[1,M]}\{\mathcal{K}_{i-1,b-r_{i-1,j}} + p_{i-1,j}\}$;
+    \State $\mathcal{P}_{i,b} = \arg\min_{j\in[1,M]}\{\mathcal{P}_{i-1,b-r_{i-1,j}} + p_{i-1,j}\}$;
+  \EndFor
+\EndFor
+\State Find $\hat{R_k}$ = $\arg\min_{b\in [0,R_k]} \{\mathcal{K}_{N_k,b}\}$;
+\For {$i$ from $N_k$ to 1}
+  \State $l_i = \mathcal{P}_{i,\hat{R_k}}$;
+  \State $\hat{R_k} = \hat{R_k} - r_{i,l_i}$;
+\EndFor \\
+\Return $\{l_i\}$
+\end{algorithmic}
+\end{algorithm}
+
+This optimization problem can be solved as a Multiple-Choice Knapsack problem. A brute force search which exhaustively evaluates all combinations guarantees an optimal solution. However, the computational complexity is O($N^M$). To reduce the computation time, we use a dynamic programming method (algorithm 1) to approximate the problem where the computational complexity is O($R_kMN$).
