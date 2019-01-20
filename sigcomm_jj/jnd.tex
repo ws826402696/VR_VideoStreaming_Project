@@ -109,13 +109,30 @@ We empirical build the correlation between these factors and \vrjnd based on an 
  \end{figure}
 
 \mypara{Impact of multiple factors}
-\jc{briefly explain the impact of any two factors on \vrjnd, shown in Figure~\ref{fig:two-factor}. how does the graph show the correlations are mutually independent?}
+\jc{briefly explain the impact of any two factors on \vrjnd, shown in Figure~\ref{fig:two-factor}. how does the graph show the correlations are mutually independent? also mention such mutual independence has been observed in traditional jnd studies}
 
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{figures/two-factor.pdf}
   \caption{Multi-factor analysis. The impact of two factors on \vrjnd appear to be largely mutually independent.}
   \label{fig:two-factor}
+ \end{figure}
+ 
+\mypara{Interaction with existing JND model}
+In addition, we also vary traditional JND values while changing one of the three new factors, and found their impact on \vrjnd is also largely independent to the existing JND factors.
+\jc{do a similar analysis between traditional jnd and the new factors. no need the show the figures, if not enough space}
+
+\mypara{Putting it together}
+\jc{give the complete equation of \vrjnd, and the parameters as much as possible}
+
+\mypara{Validation with opinion score}
+\jc{explain Figure~\ref{fig:pspnr-accuracy}}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/pspnr-accuracy.pdf}
+  \caption{PSPNR with the proposed \vrjnd can predict user rating more accurately than the  existing PSPNR metric.}
+  \label{fig:pspnr-accuracy}
  \end{figure}
 
 Lastly, this in no way provides a complete list of quality-determining factors. 
