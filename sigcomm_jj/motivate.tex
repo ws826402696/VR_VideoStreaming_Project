@@ -266,7 +266,7 @@ So the existing equal-sized tiling mechanism is not sufficient to fully explore 
 \begin{figure}
   \centering
   \includegraphics[width=2.5in]{images/bitrateefficiency.eps}
-  \caption{The ratio of video size after tiling and original video size in each tiling granularity and each bitrate level. We notice that fine-grained tiling introduces serious bitrate efficiency problem, especially in low bandwidth situations in which the overall bitrate of each tile is low. \jc{pick one line. no need for five lines}}
+  \caption{The average video size under different tiling granularities. \jc{pick one line. no need for five lines}}
   \label{fig:bitrate-efficiency}
   \end{figure}
 
@@ -275,7 +275,7 @@ So the existing equal-sized tiling mechanism is not sufficient to fully explore 
 Finally, the new quality-determining factors call for a revisit on the streaming protocol. 
 On one hand, it seems the protocol must be sufficiently adaptive to cope not just fluctuation in bandwidth variation and viewpoint movement, but also real-time changes of the movement velocity, the scene luminance, and the depth-of-field. 
 On the other hand, the streaming protocol must also be architecturally compatible with the HTTP-based delivery infrastructure that has spurred the rise of \vrvideos, so the quality adaptation is driven solely by the client (while the server passively server the video as web objects). 
-Unfortunately, this is difficult because, as we will see, to calculate the optimal quality level, the client needs the knowledge of the video content before streaming the content. 
+Unfortunately, this is difficult because, as we will see, to calculate the optimal quality level, the client needs the knowledge of the video content before streaming the content (unlike in viewpoint-driven scheme). 
 
 %To optimize perceived quality, client needs to compute the perceived quality of each bitrate allocation and then make decision. However, different from video quality which only related to video content itself, perceived quality depends on both video content and user behavior. Information of video content is located on server-side while information of user behavior is located on client-side. To get information of video content with current DASH, client has to pre-request in information of each pixel from server. This communication overload even exceed the overload of actual video streaming.
 

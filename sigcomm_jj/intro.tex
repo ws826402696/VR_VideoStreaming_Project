@@ -41,13 +41,20 @@ With a deeper understanding of how user perceive the video quality, the video st
 Based on an empirical study over \fillme \vr videos and \fillme actual viewers, we found that one can save \fillme\% bandwidth and \fillme\% less buffering ratio without any drop in perceived quality. (More discussions in \S\ref{subsec:potentials})
 
 
-
-\begin{figure}[t!]
+\begin{figure}
   \centering
-  \includegraphics[width=2.5in]{images/improvement.eps}
-  \caption{Effectiveness of \name at reducing the bandwidth consumption and improving QoE. \jc{TODO. an example graph with two curves comparing \name and a canonical \vr video streaming protocol. }}
-  \label{fig:intro-improvement}
-  \end{figure}
+  \includegraphics[width=3in]{images/intro-result.pdf}
+  \caption{Performance of \name and the popular viewpoint-driven approach on \fillme \vrvideos and \fillme real-user viewpoint traces over an emulated link of \fillme($\pm$\fillme) Mbps.
+  Full results are in \S\ref{sec:eval}.}
+  \label{first_image}
+\end{figure}
+
+%\begin{figure}[t!]
+%  \centering
+%  \includegraphics[width=2.5in]{images/improvement.eps}
+%  \caption{Effectiveness of \name at reducing the bandwidth consumption and improving QoE. \jc{TODO. an example graph with two curves comparing \name and a canonical \vr video streaming protocol. }}
+%  \label{fig:intro-improvement}
+%  \end{figure}
 
 The rationale behinds these opportunities is the fact that people have a limited span of attention.
 For instance, as a viewer moves the viewpoint, it does increase the area that has to be streamed, but the viewer's ``per-pixel'' attention  (\ie sensitivity to quality distortion) drops as a result of having to spread the limited span of attention across a wider region.
