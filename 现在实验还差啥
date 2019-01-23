@@ -1,12 +1,12 @@
 1.potential improvement需要换个方法
 2.VRJND tiling一个视频效果不错，需要大量视频跑出来
-3.景深、明暗适应的popularity不大
+3.dof pop
+lum pop
+cdf上划一条竖线，threshold
 4.rate allocation上再找一个baseline
 5.跟buffer相关的实验改用网上能下载到的真实throughput trace。
 6.补充JND的2维测量实验
-dof pop
-lum pop
-cdf上划一条竖线，threshold
+
 图1 0开始 单调
 
 需要讨论：
