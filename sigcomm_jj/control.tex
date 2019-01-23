@@ -40,3 +40,19 @@ Now, a reliable prediction on the lower bound of PSPNR of a tile is actually suf
 
 \subsection{DASH-compatible design}
 \label{subsec:compatible}
+
+While the logical workflow of \name is straightforward, it is nevertheless incompatible to the popular client-driven video streaming protocols.
+\name bases its quality adaptation on the calculation of PSPNR (Equation~\ref{eq:pspnr}), which requires both user actions (for estimating JND) and the pixel-level information of the video. 
+Because the pixel information is availale only at the video server, a straightforward implementation of \name would be to send the user action prediction (\eg how fast the viewpoint moves) to the server which than makes quality-adaptation decisions. 
+This however violates a key tenet of the existing video streaming protocol that has spurred the wide popularity of \vrvideos---the server must be passive while the client makes the adaptation decisions. Otherwise, the servers would be specialized, rather than cheap web servers.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/decoupling.pdf}
+  \caption{Decoupling the logical PSPNR calculation workflow (a) into client and server by embededding the pre-computed PSPNR in the manifest file (b), so that the server is not longer involved in real-time PSPNR calculation or quality adaptation.}
+  \label{fig:decoupling}
+  \end{figure}
+
+
+The idea behind \name is that one can decouple of calculation of PSPNR into an offline phase when the server pre-calculates the PSPNR for some ``representative'' user actions and stores them in a {\em PSNPR lookup table}, and an online phase when the client looks up the predicted user action in the table in real time. 
+As illustrated in Figure~\ref{fig:decoupling}, this scheme is completely compatible with the existing client-driven video streaming protocol, like DASH: we can put the PSPNR lookup table in the manifest file (which will take no more than \fillme Bytes for a \fillme-minutes video), and the online PSPNR calculation and quality adaptation can be done purely on the client-side.
