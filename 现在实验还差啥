@@ -6,8 +6,7 @@ cdf上划一条竖线，threshold
 4.rate allocation上再找一个baseline
 5.跟buffer相关的实验改用网上能下载到的真实throughput trace。
 6.补充JND的2维测量实验
-
-图1 0开始 单调
+7.图1 0开始 单调
 
 需要讨论：
 1.是否需要discussion一节，讨论下reviewer可能关心的问题，例如我们的视频都是2k的，有没啥办法说明一下在更高分辨率下我们的方法也一样work？
