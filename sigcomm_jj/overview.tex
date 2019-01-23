@@ -8,20 +8,13 @@ Before diving into the details of each component, we first give an overview of t
 
 
 
-\begin{figure}[t!]
-  \centering
-  \includegraphics[width=3.5in]{figures/overview.pdf}
-  \caption{Overview of \name and how it fits to the existing \vr video streaming architecture.}
-  \label{fig:overview}
-  \end{figure}
-
 \mypara{Quality metric (\S\ref{sec:jnd})}
 Building on a standard framework of video quality metric framework, we found the minimal changes needed to incorporate the new quality-determining factors (Challenge \#1) is to quantify their joint impact on the {\em minimal noticeable quality distortion}.
 In other words, rather than building a \vrvideo quality metrics from scratch, one only needs to quantify the minimal noticeable quality distortion (\ie the lowest acceptable quality level) under any given viepoint-moving speed, change of luminance, and DoF difference. 
 Moreover, our empirical analysis based on an IRB-approved user study reveals that the impact of these new factors on quality is largely mutually independent, which further reduces the efforts to profile the joint impact of these factors on \vrvideo quality.
 
 \mypara{Offline tiling (\S\ref{sec:tiling})}
-Unlike traditional tiling schemes which always split a video into same-size grids, \name splits it into tiles in a {\em non-uniform} manner, with the tile boundaries roughly where the object moving speed, luminance, or DoF changes (illustrated in Figure~\ref{fig:tiling}). 
+Unlike traditional tiling schemes which always split a video into same-size grids, \name splits it into {\em variable-size} tiles, with the tile boundaries roughly where the object moving speed, luminance, or DoF changes (illustrated in Figure~\ref{fig:tiling}). 
 Each tile is then encoded in multiple levels of quantization parameter (QP). %, so that the quality level can be picked to optimize the perceived quality during playback time.
 The key here is that \name allows regions with different sensitivity to quality distortion can be treated differently, while maintaining the same tiling granularity as traditional equal-size grid tiling, thus providing the necessary flexibility without exploding the bandwidth consumption (Challenge \#2).
 
