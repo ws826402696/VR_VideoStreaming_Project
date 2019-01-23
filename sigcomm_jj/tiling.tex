@@ -1,10 +1,11 @@
 %!TEX root = main.tex
 
-\section{Video tiling of \name}
+\section{Video tiling}
 \label{sec:tiling}
 
-Video tiling splits a video spatially into smaller regions each encoded at multiple quality levels, so that the runtime streaming protocol can adapt quality levels according to the users viewport movement.
-Next, we describe a systematic tiling mechanism that fully utilizes the new quality model introduced in the last section.
+Next, we describe \name's tiling scheme.
+% that splits a video into spatial regions each encoded at multiple quality levels, so that the runtime streaming protocol can adapt quality levels according to the users viewport movement.
+Our focus is to explain how it splits a video spatially into {\em variable-size} tiles, each encoded at multiple quality levels, such that the runtime streaming protocol could flexibly adapt quality level to optimize user-perceived quality (\S\ref{sec:jnd}).
 
 \mypara{High-level process}
 By default, \name temporally splits a video to one-second chunks, and spatially splits each tile into tiles by the following high-level steps (illustrated in Figure~\ref{fig:tiling-steps}).
@@ -36,7 +37,7 @@ That is, even if there are inaccuracies in the observations, our solution still 
 \mypara{Grouping of fine-grained tiles}
 The intuition behind grouping small tiles with similar efficiency score (Step 3) is that tiles that have a similarly high (or low) scores are likely to be assigned with similarly high (or low) quality level. 
 Therefore, grouping them into large tiles increases video encoding efficiency (\ie smaller size due to reducing redundant information at tile boundaries) at a small cost of perceived quality.
-This step can be formulated as a knapsack packing problem that minimizes the score variance in each large tile while maintaining the total number of tiles.
+This step can be formulated as a minimum set cover problem that minimizes the score variance in each large tile while maintaining the total number of tiles.
 \jc{Guan Yu: add the problem formulation and a short description of the DP solution}
 
 
