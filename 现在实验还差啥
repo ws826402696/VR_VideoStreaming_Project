@@ -9,6 +9,7 @@ cdf上划一条竖线，threshold
 7.图1 0开始 单调
 8.end to end performance中 图24 换乘buf-pspnr的图
 9.network trace 再找几组
+10.图1，试一下能不能就用一个3秒的buffer使得不卡顿且能体现出我们的优势（不确定）
 
 需要讨论：
 1.是否需要discussion一节，讨论下reviewer可能关心的问题，例如我们的视频都是2k的，有没啥办法说明一下在更高分辨率下我们的方法也一样work？
