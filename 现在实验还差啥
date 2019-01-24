@@ -14,6 +14,13 @@
 5.network trace 再找几组
 6.（讨论下到底做不做）.图1，试一下能不能就用一个3秒的buffer使得不卡顿且能体现出我们的优势，不要单独弄个baselayer的长buffer（如果要用真实LTE throughput来测的话，最好别做这个，throughput变化挺大的，存在连续时间低throughput的情况，只有3秒buffer很难不卡顿的。。。）
 
+paper：
+1.pspnr不准的，tiling performance影响大吗
+2.pspnr没有的，tiling performance影响大吗
+3.qbe还是qqe的问题
+4.dp算法写在paper上
+5.填paper上的空
+
 需要讨论：
 1.是否需要discussion一节，讨论下reviewer可能关心的问题，例如我们的视频都是2k的，有没啥办法说明一下在更高分辨率下我们的方法也一样work？
 
