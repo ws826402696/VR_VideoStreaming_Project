@@ -6,20 +6,20 @@
 4.VRJND tiling一个视频效果不错，需要大量视频跑出来
 5.画一张user rating的图。
 6.截个图，后期加工
-7.补充JND的2维测量实验 (自己已经测完，结果符合预期，下一步找室友测)
+7.补充JND的2维测量实验
 8.rate allocation上再找一个baseline
 9.跟buffer相关的实验改用网上能下载到的真实throughput trace。
 10.end to end performance中 图24 换乘buf-pspnr的图
 11.network trace 再找几组
 12.（讨论下到底做不做）.图1，试一下能不能就用一个3秒的buffer使得不卡顿且能体现出我们的优势，不要单独弄个baselayer的长buffer（如果要用真实LTE throughput来测的话，最好别做这个，throughput变化挺大的，存在连续时间低throughput的情况，只有3秒buffer很难不卡顿的。。。）
 13 buffer 编一个特别低的码率
-分析下trace
-挑3个
-user rating高带宽
-总的endtoend，也要bf-pspnr
+14.挑3个分析下trace
+15.总的endtoend，也要bf-pspnr
+
 
 还未完成的：
-mpd压缩(还未确定目前这个量级可不可以)
+1.mpd压缩(还未确定目前这个量级可不可以)
+2.user rating高带宽
 
 
 
