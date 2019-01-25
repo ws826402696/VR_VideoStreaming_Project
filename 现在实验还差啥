@@ -11,7 +11,9 @@
 9.跟buffer相关的实验改用网上能下载到的真实throughput trace。
 10.end to end performance中 图24 换乘buf-pspnr的图
 11.network trace 再找几组
-12.（讨论下到底做不做）.图1，试一下能不能就用一个3秒的buffer使得不卡顿且能体现出我们的优势，不要单独弄个baselayer的长buffer（如果要用真实LTE throughput来测的话，最好别做这个，throughput变化挺大的，存在连续时间低throughput的情况，只有3秒buffer很难不卡顿的。。。）
+12..图1，试一下能不能就用一个3秒的buffer使得不卡顿且能体现出我们的优势，不要单独弄个baselayer的长buffer
+（如果要用真实LTE throughput来测的话，最好别做这个，throughput变化挺大的，存在连续时间低throughput的情况，
+只有3秒buffer很难不卡顿的。。。）
 13 buffer 编一个特别低的码率
 14.挑3个分析下trace
 15.总的endtoend，也要bf-pspnr
